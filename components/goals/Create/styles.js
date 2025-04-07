@@ -12,18 +12,24 @@ const styles = StyleSheet.create({
   },
   createGoal: {
     alignItems: 'center',
-    borderBottomColor: '#cccccc',
-    borderBottomWidth: 1,
+    backgroundColor: '#311b6b',
     flex: 1,
     flexDirection: 'column', // Default
     justifyContent: 'center',
-    marginBottom: 24,
     padding: 16,
   },
+  image: {
+    height: 100,
+    margin: 20,
+    width: 100,
+  },
   textInput: {
-    borderColor: '#cccccc',
+    backgroundColor: '#e4d0ff',
+    borderColor: '#e4d0ff',
+    borderRadius: 6,
     borderWidth: 1,
-    padding: 8,
+    color: '#120438',
+    padding: 16,
     width: '100%',
   },
 });

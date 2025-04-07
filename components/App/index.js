@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 // Custom Modules
 import {
@@ -17,7 +18,7 @@ import {
 import styles from './styles';
 
 // Constants
-const BUTTON_COLOR = '#5e0acc';
+const BUTTON_COLOR = '#a065ec';
 const BUTTON_TITLE = "Add New Goal";
 
 function App() {
@@ -48,30 +49,33 @@ function App() {
   }
 
   return (
-    <View style={styles.app}>
-      <Button
-        color={BUTTON_COLOR}
-        onPress={handleOpenModal}
-        title={BUTTON_TITLE}
-      />
-      <CreateGoal
-        data={{
-          modalOpened,
-        }}
-        handlers={{
-          addGoal: handleAddGoal,
-          cancel: handleCloseModal,
-        }}
-      />
-      <ListGoals
-        data={{
-          goals,
-        }}
-        handlers={{
-          deleteGoal: handleDeleteGoal,
-        }}
-      />
-    </View>
+    <>
+      <StatusBar style="light" />
+      <View style={styles.app}>
+        <Button
+          color={BUTTON_COLOR}
+          onPress={handleOpenModal}
+          title={BUTTON_TITLE}
+        />
+        <CreateGoal
+          data={{
+            modalOpened,
+          }}
+          handlers={{
+            addGoal: handleAddGoal,
+            cancel: handleCloseModal,
+          }}
+        />
+        <ListGoals
+          data={{
+            goals,
+          }}
+          handlers={{
+            deleteGoal: handleDeleteGoal,
+          }}
+        />
+      </View>
+    </>
   );
 }
 
