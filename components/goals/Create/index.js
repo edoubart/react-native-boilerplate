@@ -51,10 +51,16 @@ function CreateGoal(props) {
         />
         <View style={styles.buttons}>
           <View style={styles.button}>
-            <Button onPress={handleAddGoal} title={BUTTON_ADD_TITLE} />
+            <Button
+              onPress={handleAddGoal}
+              title={BUTTON_ADD_TITLE}
+            />
           </View>
           <View style={styles.button}>
-            <Button title={BUTTON_CANCEL_TITLE} />
+            <Button
+              onPress={props.handlers.cancel}
+              title={BUTTON_CANCEL_TITLE}
+            />
           </View>
         </View>
       </View>

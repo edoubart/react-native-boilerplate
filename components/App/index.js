@@ -39,6 +39,10 @@ function App() {
     setGoals(newGoals);
   }
 
+  function handleCloseModal() {
+    setModalOpened(false);
+  }
+
   function handleOpenModal() {
     setModalOpened(true);
   }
@@ -56,6 +60,7 @@ function App() {
         }}
         handlers={{
           addGoal: handleAddGoal,
+          cancel: handleCloseModal,
         }}
       />
       <ListGoals
