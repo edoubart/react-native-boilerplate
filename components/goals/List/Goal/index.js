@@ -9,6 +9,9 @@ import {
 // Styles
 import styles from './styles';
 
+// Constants
+const PRESSABLE_COLOR = '#210644';
+
 function Goal(props) {
   // Handlers
   function handleDeleteGoal() {
@@ -18,7 +21,7 @@ function Goal(props) {
   return (
     <View style={styles.goal}>
       <Pressable
-        android_ripple={{ color: '#210644' }}
+        android_ripple={{ color: PRESSABLE_COLOR }}
         onPress={handleDeleteGoal}
         styles={({ pressed }) => pressed && styles.pressed}
       >

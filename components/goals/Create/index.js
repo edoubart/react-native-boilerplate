@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import {
   Button,
+  Modal,
   TextInput,
   View,
 } from 'react-native';
@@ -10,7 +11,8 @@ import {
 import styles from './styles';
 
 // Constants
-const BUTTON_TITLE = "Add Goal";
+const BUTTON_ADD_TITLE = "Add Goal";
+const BUTTON_CANCEL_TITLE = "Cancel";
 const TEXT_INPUT_PLACEHOLDER = "Your course goal!";
 
 function CreateGoal(props) {
@@ -39,18 +41,24 @@ function CreateGoal(props) {
   }
 
   return (
-    <View style={styles.createGoal}>
-      <TextInput
-        onChangeText={handleChangeGoal}
-        placeholder={TEXT_INPUT_PLACEHOLDER}
-        style={styles.textInput}
-        value={goal.text}
-      />
-      <Button
-        onPress={handleAddGoal}
-        title={BUTTON_TITLE}
-      />
-    </View>
+    <Modal animationType="slide" visible={props.data.modalOpened} >
+      <View style={styles.createGoal}>
+        <TextInput
+          onChangeText={handleChangeGoal}
+          placeholder={TEXT_INPUT_PLACEHOLDER}
+          style={styles.textInput}
+          value={goal.text}
+        />
+        <View style={styles.buttons}>
+          <View style={styles.button}>
+            <Button onPress={handleAddGoal} title={BUTTON_ADD_TITLE} />
+          </View>
+          <View style={styles.button}>
+            <Button title={BUTTON_CANCEL_TITLE} />
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 

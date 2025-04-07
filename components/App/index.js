@@ -4,7 +4,6 @@ import {
   Button,
   FlatList,
   StyleSheet,
-  TextInput,
   View,
 } from 'react-native';
 
@@ -17,10 +16,16 @@ import {
 // Styles
 import styles from './styles';
 
+// Constants
+const BUTTON_COLOR = '#5e0acc';
+const BUTTON_TITLE = "Add New Goal";
+
 function App() {
   // State
   const [ goals, setGoals ] = useState([]);
-  console.log('goals: ', goals)
+  console.log('goals: ', goals);
+  const [ modalOpened, setModalOpened ] = useState(false);
+  console.log('modalOpened: ', modalOpened);
 
   // Handlers
   function handleAddGoal(goal) {
@@ -34,9 +39,21 @@ function App() {
     setGoals(newGoals);
   }
 
+  function handleOpenModal() {
+    setModalOpened(true);
+  }
+
   return (
     <View style={styles.app}>
+      <Button
+        color={BUTTON_COLOR}
+        onPress={handleOpenModal}
+        title={BUTTON_TITLE}
+      />
       <CreateGoal
+        data={{
+          modalOpened,
+        }}
         handlers={{
           addGoal: handleAddGoal,
         }}
