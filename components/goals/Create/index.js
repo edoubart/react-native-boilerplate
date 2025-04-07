@@ -15,17 +15,25 @@ const TEXT_INPUT_PLACEHOLDER = "Your course goal!";
 
 function CreateGoal(props) {
   // State
-  const [ goal, setGoal ] = useState(null);
+  const [ goal, setGoal ] = useState({
+    id: '',
+    text: '',
+  });
   console.log('goal: ', goal)
 
   // Handlers
   function handleAddGoal() {
+    setGoal({
+      ...goal,
+      id: Math.random().toString(),
+    });
+
     props.handlers.addGoal(goal);
   }
 
   function handleChangeGoal(text) {
     setGoal({
-      id: Math.random().toString(),
+      ...goal,
       text,
     });
   }

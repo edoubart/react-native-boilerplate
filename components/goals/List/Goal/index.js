@@ -1,5 +1,6 @@
 // NPM Packages
 import {
+  Pressable,
   StyleSheet,
   Text,
   View,
@@ -9,9 +10,20 @@ import {
 import styles from './styles';
 
 function Goal(props) {
+  // Handlers
+  function handleDeleteGoal() {
+    props.handlers.deleteGoal(props.data.goal.id);
+  }
+
   return (
     <View style={styles.goal}>
-      <Text style={styles.text}>{ props.data.goal.text }</Text>
+      <Pressable
+        android_ripple={{ color: '#210644' }}
+        onPress={handleDeleteGoal}
+        styles={({ pressed }) => pressed && styles.pressed}
+      >
+        <Text style={styles.text}>{ props.data.goal.text }</Text>
+      </Pressable>
     </View>
   );
 }

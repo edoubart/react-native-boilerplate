@@ -27,6 +27,13 @@ function App() {
     setGoals([ ...goals, goal ]);
   }
 
+  function handleDeleteGoal(id) {
+    let newGoals = [ ...goals ]
+      .filter(goal => goal.id !== id);
+
+    setGoals(newGoals);
+  }
+
   return (
     <View style={styles.app}>
       <CreateGoal
@@ -37,6 +44,9 @@ function App() {
       <ListGoals
         data={{
           goals,
+        }}
+        handlers={{
+          deleteGoal: handleDeleteGoal,
         }}
       />
     </View>

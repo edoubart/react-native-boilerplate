@@ -21,6 +21,9 @@ function ListGoals(props) {
         data={{
           goal: itemData.item,
         }}
+        handlers={{
+          deleteGoal: props.handlers.deleteGoal,
+        }}
       />
     );
   }
