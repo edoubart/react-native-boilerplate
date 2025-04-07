@@ -16,6 +16,8 @@ const BUTTON_ADD_COLOR = '#b180f0';
 const BUTTON_ADD_TITLE = "Add Goal";
 const BUTTON_CANCEL_COLOR = '#f31282';
 const BUTTON_CANCEL_TITLE = "Cancel";
+const IMAGE_PATH = './../../../assets/images/goal.png';
+const MODAL_ANIMATION_TYPE = 'slide';
 const TEXT_INPUT_PLACEHOLDER = "Your course goal!";
 
 function CreateGoal(props) {
@@ -46,10 +48,13 @@ function CreateGoal(props) {
   }
 
   return (
-    <Modal animationType="slide" visible={props.data.modalOpened} >
+    <Modal
+      animationType={MODAL_ANIMATION_TYPE}
+      visible={props.data.modalOpened}
+    >
       <View style={styles.createGoal}>
         <Image
-          source={require('./../../../assets/images/goal.png')}
+          source={require(IMAGE_PATH)}
           style={styles.image}
         />
         <TextInput
